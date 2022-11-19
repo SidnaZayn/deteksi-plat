@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %} Login Page {% endblock %}
+{% block main %}
+<div class="container">
+    <div class="row text-center align-items-center justify-content-center">
+        <div class="col-sm-8 col-md-6 mx-auto mt-4">
+            <img src="{{ url_for('static', filename = 'img/Politeknik_Harapan_Bersama.png')}}" style="object-fit: cover; height: 100px; width: 100px; border-radius: 20px; border-style: solid;
+                 border-color: white; border-width: 3px;">
+            <h1 class="text-white mb-5 mt-5">
+                LOGIN
+            </h1>
+            <h3 class="text-white mb-5 mt-5">
+                Identifikasi Plat Nomor Kendaraan Sepeda Motor dengan Machine Learning
+            </h3>
+
+            <form action="#" method="post">
+                <div class="form-group text-white">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" aria-describedby="emailHelp"
+                           placeholder="Enter Username" name="nm">
+                </div>
+                <div class="form-group text-white">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" aria-describedby="emailHelp"
+                           placeholder="" name="pass">
+                </div>
+                <div class="form-group mt-4">
+                    <input type="submit" class="btn btn-primary mb-4" value="login">
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

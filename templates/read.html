@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %} Home Page {% endblock %}
+{% block active_home %} active {% endblock %}
+{% block main %}
+
+<section>
+    <div class="container-fluid text-center align-items-center justify-content-center mt-3">
+        <div class="row">
+            <div class="col-sm-12 col-md-10 mx-auto">
+                <h1 class="text-white mb-5">
+                    Identifikasi Plat Nomor Kendaraan Sepeda Motor dengan Machine Learning
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 mx-auto">
+                <img class="img-thumbnail mb-5" src="{{ plate_img }}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 mx-auto">
+                <h2 class="text-white mb-2">
+                    Karakter Terdeteksi :
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 mx-auto">
+                <form action="/pemilik" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="karakter"
+                               value="{{ chars }}" style="text-transform: uppercase;" name="karakter"
+                               oninput="this.value = this.value.toUpperCase()">
+                        <input type="submit" value="identifikasi pemilik" class="btn btn-success mt-3 mb-3">
+                        <a class="btn btn-outline-success mt-3 mb-3 text-white" href="/camera" role="button"><b>Ulang</b></a>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}

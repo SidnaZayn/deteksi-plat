@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %} identifikasi plat nomor motor {% endblock %}
+{% block active_home %} active {% endblock %}
+{% block main %}
+
+<section>
+    <div class="container">
+        <div class="row text-center align-items-center justify-content-center">
+            <div class="col-sm-12 col-md-12 mx-auto mb-5">
+                <h1 class="text-white mb-3">
+                    Mohon Maaf, Pemilik Belum Diketahui
+                </h1>
+                <h5>
+                    silahkan isi data berikut ini:
+                </h5>
+            </div>
+            <div class="col-md-6">
+                <form action="/db_auto" method="post">
+                    <div class="mb-3">
+                        <label for="nama_auto" class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="nama_auto" name="nama_auto"
+                               oninput="this.value = this.value.toUpperCase()">
+                    </div>
+                    <div class="mb-3">
+                        <label for="alamat_auto" class="form-label">Alamat</label>
+                        <input type="text" class="form-control" id="alamat_auto" name="alamat_auto"
+                               oninput="this.value = this.value.toUpperCase()">
+                    </div>
+                    <div class="mb-3">
+                        <label for="no_hp_auto" class="form-label">Nomer Hp</label>
+                        <input type="text" class="form-control" id="no_hp_auto" name="no_hp_auto"
+                               oninput="this.value = this.value.toUpperCase()">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="plat_auto" name="plat_auto" value="{{char_plate}}"
+                               oninput="this.value = this.value.toUpperCase()" hidden>
+                    </div>
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <a class="btn btn-outline-success text-white" href="/" role="button" onclick="myfunction()"><b>cancel</b></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+{% block js %}
+<script>
+function myfunction() {
+  if (confirm("Apakah anda yakin untuk tidak menambahkan data? jika ya, data anda tidak akan terbaca")) {
+  } else {
+  }
+}
+
+
+
+
+
+</script>
+{% endblock %}

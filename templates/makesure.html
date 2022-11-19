@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %} identifikasi plat nomor motor {% endblock %}
+{% block active_home %} active {% endblock %}
+{% block main %}
+
+
+<div class="container">
+    <section>
+        <form action="/process" method="post">
+            <div class="row text-center align-items-center justify-content-center" style="height: 100vh;">
+                <div class="col-sm-12 col-md-12 mx-auto">
+                    <h1 class="text-white mb-3">
+                        Identifikasi Plat Nomor Kendaraan Sepeda Motor dengan Machine Learning
+                    </h1>
+                    <img class="mb-3 mx-auto img-makesure rounded border border-5" src="{{ img }}">
+                    <br>
+                    <input type="text" value="{{ img }}" name="imgg" hidden>
+
+                    <!--
+                    <img class="img-thumbnail mb-5" src="{{url_for('static', filename='img/cropped/plate_cropped.jpg')}}">
+                    </div>
+                    -->
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <input class="btn btn-success mx-auto mb-3" role="button" value="submit" type="submit"></input>
+            </div>
+        </form>
+
+    </section>
+
+</div>
+
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">// <![CDATA[
+        function loading(){
+            $("#loading").show();
+            $("#content").hide();
+        }
+// ]]>
+
+
+
+
+
+
+
+
+</script>
+{% endblock %}

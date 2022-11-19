@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %} Home Page {% endblock %}
+{% block active_home %} active {% endblock %}
+{% block main %}
+
+<section>
+    <div class="container text-center align-items-center justify-content-center mt-3">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-white mb-5">
+                    Identifikasi Plat Nomor Kendaraan Sepeda Motor dengan Machine Learning
+                </h1>
+                <img class="img-thumbnail mb-5" src="{{ plate_dir }}" class="w-100">
+                <br>
+                <img class="img-thumbnail mb-5"
+                     src="{{ plate_cropped_dir }}" class="w-50">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <form action="/char" method="post">
+                    <button class="btn btn-success mb-5">submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}

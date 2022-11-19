@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %} Home Page {% endblock %}
+{% block active_home %} active {% endblock %}
+{% block main %}
+
+<div class="container">
+    <section>
+        <div class="row mt-5 mb-5" >
+            <div class="col-lg-4  text-center align-items-center justify-content-center">
+                <img src="{{url_for('static', filename='img/asset/undetected.png')}}"
+                     class="mt-5" style="width:500px">
+            </div>
+            <div class="col-lg-6 offset-md-2 oops p-5 rounded">
+                <h1 class="mb-5">
+                    Oops, Kami Mohon Maaf, Plat Anda Tidak Terdeteksi
+                </h1>
+                <h5 class="text-white mb-5">
+                   silahkan coba lagi :))
+                </h5>
+                <a class="btn btn-success mb-3"
+                   href="/camera" role="button"><b>Ulang</b></a>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block active_home %} active {% endblock %}
+{% block main %}
+    <div class="container">
+        <section>
+            <div class="row text-center align-items-center justify-content-center" style="height: 100vh;">
+                <div class="col-md-6 mx-auto">
+                    <h1 class="text-white mb-3">
+                        Ambil gambar kendaraan
+                    </h1>
+                </div>
+                <div id="my_camera"></div>
+
+                <div class="mb-3">
+                    <form action="{{url_for('capture_img')}}" method="POST" enctype="multipart/form-data" id="myForm">
+                        <input id="mydata" type="hidden" name="mydata" value="" />
+                        <input type="submit" class="btn btn-success mt-2" onclick="snap()" value="Ambil gambar">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}
+
+{% block js %}
+<script src="{{url_for('static', filename='js/webcam.js')}}"></script>
+<script language="JavaScript">
+    function ShowCam() {
+        Webcam.set('constraints', {
+            facingMode: "environment",
+            dest_width: 640,
+            dest_height: 480,
+
+        });
+        Webcam.attach('#my_camera');
+    }
+    window.onload = ShowCam;
+    function snap() {
+        Webcam.snap(function (data_uri) {
+            var raw_image_data = data_uri.replace(/^data\:image\/\w+\;base64\,/, '');
+            document.getElementById('mydata').value = raw_image_data;
+        });
+    }
+
+
+</script>
+{% endblock %}

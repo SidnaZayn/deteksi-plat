@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %} Home Page {% endblock %}
+{% block main %}
+<div id="table"></div>
+{% endblock %}
+
+{% block js %}
+<script>
+ new gridjs.Grid({
+        columns: [
+          { id: 'no', name: 'No.' },
+          { id: 'nama', name: 'Nama' },
+          { id: 'alamat', name: 'Alamat' },
+          { id: 'address', name: 'Address' },
+          { id: 'nohp', name: 'No. HP' },
+          { id: 'noplat', name: 'No. Plat' },
+          {         name: 'Actions',
+        formatter: (cell, row) => {
+          return h('button', {
+            className: 'border rounded-md text-white bg-blue-600',
+            onClick: () => alert(`Editing "${row.cells[0].data}" "${row.cells[1].data}"`)
+          }, 'Edit'); },
+        ],
+        data: [
+          {% for all_data in all_data %}
+            {
+              name: '{{ user.name }}',
+              age: {{ user.age }},
+              address: '{{ user.address }}',
+              phone: '{{ user.phone }}',
+              email: '{{ user.email }}'
+            },
+          {% endfor %}
+        ],
+        search: true,
+        sort: true,
+        pagination: true,
+      }).render(document.getElementById('table'));
+
+</script>
+{% endblock %}

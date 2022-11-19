@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %} Home Page {% endblock %}
+{% block active_link %} active {% endblock %}
+{% block main %}
+<section>
+  <div class="container-fluid">
+    <div class="row text-center align-items-center justify-content-center" style="height: 90vh;">
+      <div class="col-sm-8 col-md-6 mx-auto mt-4">
+        <img src="{{ url_for('static', filename = 'img/Politeknik_Harapan_Bersama.png')}}" style="object-fit: cover; height: 100px; width: 100px; border-radius: 20px; border-style: solid;
+                 border-color: white; border-width: 3px;">
+        <h1 class="text-white mb-5 mt-5">
+          Identifikasi Plat Nomor Kendaraan Sepeda Motor dengan Machine Learning
+        </h1>
+        <p class="text-white mb-1">
+          Oleh:
+        </p>
+        <h2 class="text-white mb-5">
+          Sidna Muhammad Zen
+        </h2>
+        <p>
+          Aplikasi ini adalah sistem indentifikasi plat nomor kendaraan motor dengan machine learning berbasis web.
+          aplikasi ini dibangun dengan bahasa pemrograman python dengan framework flask. aplikasi ini dibuat sebagai
+          syarat kelulusan sarjana terapan Teknik Informatika Politeknik Harapan Bersama
+        </p>
+        <br>
+      </div>
+    </div>
+    <a class="btn btn-success mb-5" href="/" role="button"><b>Mulai</b></a>
+  </div>
+</section>
+{% endblock %}

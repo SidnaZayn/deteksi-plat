@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block active_home %} active {% endblock %}
+{% block main %}
+<section>
+    <div class="container">
+        <div class="row" style="height: 50vh;">
+            <div class="col-sm-12 col-md-6 mx-auto text-center align-items-center justify-content-center">
+                <img class="border border-5 rounded shadow mb-5 mt-5" src="{{ plate_img }}" style=" width: 400px;">
+            </div>
+
+            <div class="col-md-6 align-items-center justify-content-center table-pemilik rounded p-3">
+                <h3 class="mb-2">Informasi Pemilik</h3>
+                {% for all_data in plat %}
+                <table class="table table-borderless w-50 align-items-center justify-content-center">
+                    <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <td>{{ all_data[1] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Alamat</th>
+                        <td style="text-transform: uppercase;">{{ all_data[2] }} </td>
+                    </tr>
+                    <tr>
+                        <th>Nomor HP</th>
+                        <td style="text-transform: uppercase;">{{ all_data[3] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Plat Nomor</th>
+                        <td style="text-transform: uppercase;">{{ all_data[4] }}</td>
+                    </tr>
+                    </thead>
+                </table>
+                <form action="/store_info" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="plat_report"
+                               value="{{ all_data[4] }}" style="text-transform: uppercase;"
+                               oninput="this.value = this.value.toUpperCase()" name="plat_report" hidden>
+                        <input type="text" class="form-control" id="pemilik_report"
+                               value="{{ all_data[1] }}" style="text-transform: uppercase;"
+                               oninput="this.value = this.value.toUpperCase()" name="pemilik_report" hidden>
+                        <input type="submit" value="selesai" role="button" class="btn btn-success">
+                    </div>
+                </form>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

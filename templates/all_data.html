@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %} Home Page {% endblock %}
+{% block main %}
+<div class="container-fluid">
+    <div class="row text-center align-items-center justify-content-center">
+        <div class="col-sm-8 col-md-8 mx-auto mt-4">
+            <h3 class="text-white mb-4">
+                Informasi Pemilik Kendaraan
+            </h3>
+            <div class="table-pemilik bg-light p-3 rounded-3 shadow mb-3">
+                <table id="table_pemilik" class="table table-striped">
+                    <thead>
+                    <tr class="header">
+                        <th scope="col">No.</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Alamat</th>
+                        <th scope="col">No. HP</th>
+                        <th scope="col">No. Plat</th>
+                        <th scope="col">Aksi</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for all_data in all_data %}
+                    <tr>
+                        <td style="text-transform: uppercase;">
+                            {{ loop.index }}
+                        </td>
+                        <td style="text-transform: uppercase;">
+                            {{ all_data[1] }}
+                        </td>
+                        <td style="text-transform: uppercase;">
+                            {{ all_data[2] }}
+                        </td>
+                        <td style="text-transform: uppercase;">
+                            {{ all_data[3] }}
+                        </td>
+                        <td style="text-transform: uppercase;">
+                            {{ all_data[4] }}
+                        </td>
+                        <td style="text-transform: uppercase;">
+                            <a href="/edit/{{ all_data[0] }}" class="btn btn-primary" role="button">Edit</a>
+                            <a href="/delete/{{ all_data[0] }}" class="btn btn-warning" role="button"
+                               onclick="return confirm('Yakin ingin hapus?')">Hapus</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+            <a class="btn btn-success mb-5" href="{{url_for('tambah_data')}}" role="button"><b>Tambah Data</b></a>
+            <a class="btn btn-success mb-5" href="{{url_for('report')}}" role="button"><b>Lihat Data Report</b></a>
+            <a class="btn btn-danger mb-5" href="{{url_for('logout')}}" role="button"><b>logout</b></a>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script>
+      $(document).ready(function () {
+        $('#table_pemilik').DataTable({
+               "bInfo" : false,
+                "lengthChange": false,
+                "pageLength": 10
+        });
+      });
+
+</script>
+{% endblock %}

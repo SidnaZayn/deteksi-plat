@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %} Halaman Data Pemilik {% endblock %}
+{% block main %}
+<section>
+    <div class="container">
+        {% for all_data in all_data %}
+
+        <form action="/update/{{ all_data.id }}" method="post">
+            <div class="row text-center align-items-center justify-content-center" >
+                <div class="col-sm-8 col-md-6 mx-auto">
+                    <h1 class="text-white mb-5">
+                        Edit Data Pemilik
+                    </h1>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama</label>
+                        <input type="text" class="form-control" oninput="this.value = this.value.toUpperCase()"
+                               id="nama" name="nama_edit" value="{{ all_data[1] }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="alamat" class="form-label">Alamat</label>
+                        <input type="text" class="form-control" oninput="this.value = this.value.toUpperCase()"
+                               id="alamat" name="alamat_edit" value="{{ all_data[2] }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="no_hp" class="form-label">Nomer Hp</label>
+                        <input type="text" class="form-control" id="no_hp"
+                               oninput="this.value = this.value.toUpperCase()" name="no_hp_edit"
+                               value="{{ all_data[3] }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="plat" class="form-label">No. Plat</label>
+                        <input type="text" class="form-control" id="plat"
+                               oninput="this.value = this.value.toUpperCase()" name="plat_edit"
+                               value="{{ all_data[4] }}">
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </div>
+        </form>
+        {% endfor %}
+
+    </div>
+
+</section>
+{% endblock %}
